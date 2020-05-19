@@ -1,0 +1,24 @@
+<div class="container">
+<button type="button" class="btn btn-primary" (click)="addUser()">Add User</button>
+<table class="table">    
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Location</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr> 
+    <tr *ngFor="let user of userDetails; let indexNum = index">
+        <td>{{user.name}}</td>
+        <td>{{user.phoneNum}}</td>
+        <td>{{user.emailId}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{getUserLocation(user.location)}}</td>
+        <td><button type="button" class="btn btn-info" (click)="editUser(indexNum)">Edit</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteUser(indexNum)">Delete</button></td>
+    </tr>      
+</table>
+<div>Users Count : {{userDetails.length}}</div>
+</div>
