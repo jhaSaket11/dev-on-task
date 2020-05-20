@@ -6,13 +6,13 @@
         <th>Phone Number</th>
         <th>Email</th>
         <th>Gender</th>
-        <th>Location</th>
+        <th>Preferred Location</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr> 
     <tr *ngFor="let user of userDetails; let indexNum = index">
         <td>{{user.name}}</td>
-        <td>{{user.phoneNum}}</td>
+        <td>{{user.phoneNum | phoneNum}}</td>
         <td>{{user.emailId}}</td>
         <td>{{user.gender}}</td>
         <td>{{getUserLocation(user.location)}}</td>

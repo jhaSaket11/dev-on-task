@@ -19,12 +19,12 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     this.user = new UserDetailsModel();
-    if (!this.appService.isFromeditMode) { return; }
     this.route.params.subscribe((index) => {
       this.editIndex = +index.id;
-      this.user = this.appService.totalUsers[this.editIndex];
+      if (!isNaN(this.editIndex)) {
+        this.user = this.appService.totalUsers[this.editIndex];
+      }
     });
-
   }
 
   public goToUserTable() {
@@ -52,6 +52,10 @@ export class UserFormComponent implements OnInit {
     this.appService.isFromeditMode = false;
     this.user = new UserDetailsModel();
     this.router.navigate(['/user-table-component']);
+  }
+
+  public isLocationSelected(): boolean {
+    return this.user.location.length > 0;
   }
 
 }

@@ -7,6 +7,7 @@ import { UserDetailsModel } from './user-details.model';
 })
 export class AppService {
     public totalUsers: UserDetailsModel[] = [];
+    public userChecked: UserDetailsModel;
     public isFromeditMode: boolean;
     private usersObservable = new BehaviorSubject<UserDetailsModel[]>(this.totalUsers);
 

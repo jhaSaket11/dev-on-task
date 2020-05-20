@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserTableComponent } from './table-component/user-table.component';
 import { UserFormComponent } from './form-component/user-form.component';
+import { NumberDirective } from './number-only.directive';
+import { PhonePipe } from './phone-number.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserTableComponent,
-    UserFormComponent
+    UserFormComponent,
+    NumberDirective,
+    PhonePipe
   ],
   imports: [
     BrowserModule,
