@@ -4,7 +4,7 @@
         <label for="user-name">Name</label>
         <input type="text" class="form-control" name="userName" id="user-name" 
         [(ngModel)]="user.name" #name="ngModel" required>
-        <div *ngIf="name.invalid" class="alert alert-danger">Name is required</div>
+        <div *ngIf="name.errors && (name.invalid || name.touched)" class="text-danger">Name is required</div>
     </div>  
     <div class="form-group">
         <label for="user-phoneNum">Phone Number</label>
@@ -15,7 +15,7 @@
         <label for="user-email">Email</label>
         <input type="email" class="form-control" name="userEmail" id="user-email" 
         [(ngModel)]="user.emailId" #emailId="ngModel" [email]=true>
-        <div *ngIf="emailId.invalid" class="alert alert-danger">Please enter correct email address</div>
+        <div *ngIf="emailId.invalid" class="text-danger">Please enter correct email address</div>
     </div>
     <div class="form-group">
         <label for="user-gender">Gender</label>
@@ -23,7 +23,7 @@
          [(ngModel)]="user.gender" #gender="ngModel" required>                        
           <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
         </select>
-        <div *ngIf="gender.invalid" class="alert alert-danger">Gender is required</div>
+        <div *ngIf="gender.invalid" class="text-danger">Gender is required</div>
     </div>
     <div class="form-group">
         <label for="location">Preferred Location</label>
@@ -32,7 +32,7 @@
             <label class="location-checkbox-label">{{location}}</label>
         </div>
     </div>
-    <div [hidden]="isLocationSelected()" class="alert alert-danger">Gender is required</div>
+    <div [hidden]="isLocationSelected()" class="text-danger">Location is required</div>
     <div class="row">
         <div class="col-sm-12 col-md-2 col-lg-2">
             <button type="submit" class="btn btn-success" [disabled]="!userFrom.form.valid || !isLocationSelected()">Submit</button>

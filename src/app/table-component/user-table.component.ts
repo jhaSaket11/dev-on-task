@@ -20,7 +20,7 @@ export class UserTableComponent implements OnInit {
   }
 
   public editUser(index: number): void {
-    this.router.navigate(['/user-form-component', index]);
+    this.router.navigate(['/user-form-component', {id: index}]);
     this.appService.isFromeditMode = true;
   }
 
